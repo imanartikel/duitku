@@ -1,7 +1,8 @@
 import gspread
+import json
 from google.oauth2.service_account import Credentials
 from datetime import datetime
-from config import GOOGLE_CREDS_JSON, SPREADSHEET_NAME
+from config import GOOGLE_CREDS_JSON, SPREADSHEET_NAME, GOOGLE_CREDS_JSON_DATA
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -12,7 +13,14 @@ HEADERS = ["Tanggal", "Waktu", "Tipe", "Kategori", "Nominal", "Deskripsi", "Cata
 
 
 def get_worksheet():
-    creds = Credentials.from_service_account_file(GOOGLE_CREDS_JSON, scopes=SCOPES)
+    if GOOGLE_CREDS_JSON_DATA:
+        try:
+            info = json.loads(GOOGLE_CREDS_JSON_DATA)
+            creds = Credentials.from_service_account_info(info, scopes=SCOPES)
+        except Exception:
+            creds = Credentials.from_service_account_file(GOOGLE_CREDS_JSON, scopes=SCOPES)
+    else:
+        creds = Credentials.from_service_account_file(GOOGLE_CREDS_JSON, scopes=SCOPES)
     client = gspread.authorize(creds)
     try:
         spreadsheet = client.open(SPREADSHEET_NAME)

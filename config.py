@@ -6,6 +6,7 @@ load_dotenv()
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_CREDS_JSON = os.getenv("GOOGLE_CREDS_JSON", "credentials.json")
+GOOGLE_CREDS_JSON_DATA = os.getenv("GOOGLE_CREDS_JSON_DATA")
 SPREADSHEET_NAME = os.getenv("SPREADSHEET_NAME", "DuitTracker")
 
 # Telegram user ID lo — biar bot cuma bisa dipakai lo sendiri
