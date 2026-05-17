@@ -21,7 +21,7 @@ Untuk TRANSAKSI, kembalikan JSON dengan array items:
   "items": [
     {
       "tipe": "pengeluaran" atau "pemasukan",
-      "kategori": salah satu dari [Makan, Groceries, Transport, Belanja, Hiburan, Kesehatan, Tagihan, Gaji, Freelance, Investasi, Lain-lain],
+      "kategori": salah satu dari [Makan, Groceries, Transport, Belanja, Hiburan, Kesehatan, Tagihan, Gaji, Freelance, Investasi, Edukasi, Rumah, Kendaraan, Amal, Hadiah, Lain-lain],
       "nominal": angka tanpa titik/koma,
       "deskripsi": deskripsi singkat item ini
     }
@@ -44,10 +44,10 @@ ATURAN NOMINAL (PENTING):
 - Jika nominal < 1000 dan tidak ada satuan, anggap ribuan. Contoh: "25" = 25000, "150" = 150000, "8" = 8000
 - Jika nominal >= 1000, gunakan apa adanya
 
-ATURAN KATEGORI:
+ATURAN KATEGORI & MULTIPLE ITEMS (SANGAT PENTING):
 - Groceries = bahan makanan mentah: ayam, daging, sayur, buah, telur, beras, bumbu, ikan, dll
 - Makan = makanan siap makan: warteg, restoran, jajan, kopi, bakso, dll
-- Jika multiple item dalam satu pesan, buat array terpisah per item
+- Jika user menginput BANYAK transaksi dalam SATU pesan (misal: "sayur 20rb, ayam 30rb, bensin 15"), kamu WAJIB memecahnya menjadi BANYAK objek terpisah di dalam array `items`. Jangan digabungkan jadi satu!
 
 Kembalikan HANYA JSON, tanpa penjelasan."""
 

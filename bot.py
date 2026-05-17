@@ -60,9 +60,7 @@ async def cmd_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "`/setbudget Groceries 800000`\n"
         "`/setbudget Transport 500000`\n\n"
         "Kategori valid:\n"
-        "Makan, Groceries, Transport, Belanja,\n"
-        "Hiburan, Kesehatan, Tagihan, Gaji,\n"
-        "Freelance, Investasi, Lain-lain",
+        f"{', '.join(KATEGORI_VALID)}",
         parse_mode="Markdown",
     )
 

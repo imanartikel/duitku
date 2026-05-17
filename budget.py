@@ -6,7 +6,8 @@ BUDGET_FILE = "budget.json"
 KATEGORI_VALID = [
     "Makan", "Groceries", "Transport", "Belanja",
     "Hiburan", "Kesehatan", "Tagihan", "Gaji",
-    "Freelance", "Investasi", "Lain-lain"
+    "Freelance", "Investasi", "Edukasi", "Rumah",
+    "Kendaraan", "Amal", "Hadiah", "Lain-lain"
 ]
 
 
